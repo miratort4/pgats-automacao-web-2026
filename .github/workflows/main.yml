@@ -1,0 +1,40 @@
+name:  PGATS - Esteira de Testes Automatizados Cypress
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do Repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Instalar Dependencias do Projeto
+        run: npm ci
+
+      - name: Executar Testes Cypress Headless
+        uses: cypress-io/github-action@v6
+        with:
+          browser: electron
+          wait-on-timeout: 120
+          install: false
+
+      - name: Upload do Relatorio HTML Mochawesome
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorio-testes-html
+          path: cypress/reports/html/
+          retention-days: 30

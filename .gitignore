@@ -1,0 +1,18 @@
+# Dependências
+node_modules/
+
+# Artefatos do Cypress
+cypress/videos/
+cypress/screenshots/
+cypress/downloads/
+cypress/reports/
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+*.log
+.env
+
+# IDE
+.vscode/
+.idea/
