@@ -23,6 +23,7 @@ Projeto de automação E2E com **Cypress** para a aplicação Automation Exercis
 
 ## Arquitetura
 
+```
 cypress/
 ├── e2e/
 │   └── trabalho_final.cy.js
@@ -36,6 +37,8 @@ cypress/
 ├── screenshots/
 └── support/
     └── e2e.js
+
+```
 
 ## Boas práticas aplicadas
 
